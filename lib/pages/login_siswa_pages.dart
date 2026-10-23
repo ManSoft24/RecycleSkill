@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 
 import 'package:recycle_skill/components/login_form/custom_check_box.dart';
 import 'package:recycle_skill/components/login_form/headertext_login_form.dart';
-import 'package:recycle_skill/components/login_form/login_form_btn.dart';
+import 'package:recycle_skill/components/login_form/login_btn_alt.dart';
+import 'package:recycle_skill/components/login_form/login_loginform_btn.dart';
 import 'package:recycle_skill/components/login_form/login_form_tf.dart';
 
 class LoginSiswaPages extends StatelessWidget {
@@ -20,7 +21,7 @@ class LoginSiswaPages extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 140),
+            SizedBox(height: 100),
 
             Container(
               alignment: Alignment.center,
@@ -40,6 +41,7 @@ class LoginSiswaPages extends StatelessWidget {
                 fontSize: 24.5,
                 fontWeight: 700,
                 text: "Selamat Datang",
+                letterSpacing: -0.55,
               ),
             ),
 
@@ -50,6 +52,7 @@ class LoginSiswaPages extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: 500,
                 text: 'Masuk ke akun konsumen Anda',
+                letterSpacing: -0.55,
               ),
             ),
 
@@ -60,6 +63,7 @@ class LoginSiswaPages extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: 500,
                 text: 'Username',
+                letterSpacing: -0.55,
               ),
             ),
 
@@ -84,6 +88,7 @@ class LoginSiswaPages extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: 500,
                     text: 'Password',
+                    letterSpacing: -0.55,
                   ),
                 ),
 
@@ -137,8 +142,75 @@ class LoginSiswaPages extends StatelessWidget {
               ),
             ),
 
-            LoginFormBtn()
+            LoginFormBtn(),
 
+            Container(
+              padding: EdgeInsets.only(top: 10),
+              child: HeadertextLoginForm(
+                fontSize: 15,
+                fontWeight: 500,
+                text: "ATAU",
+                letterSpacing: 1.5,
+              ),
+            ),
+
+            SizedBox(height: 15),
+
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 35),
+                  width: 180,
+                  height: 60,
+
+                  child: Expanded(
+                    child: LoginBtnAlt(
+                      image: Image.asset('image/google_icon.png'),
+                      text: "Google",
+                    ),
+                  ),
+                ),
+
+                Spacer(),
+
+                Container(
+                  padding: EdgeInsets.only(right: 35),
+                  width: 180,
+                  height: 60,
+
+                  child: Expanded(
+                    child: LoginBtnAlt(
+                      image: Image.asset('image/email_icon.png'),
+                      text: "Email",
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                HeadertextLoginForm(
+                  fontSize: 15,
+                  fontWeight: 15,
+                  text: "Tidak punya akun?",
+                  letterSpacing: -0.55,
+                ),
+            
+                InkWell(
+                  child: Text(
+                    " Daftar",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 52, 103, 100),
+                      fontFamily: "Jakarta",
+                      fontSize: 15,
+                      fontWeight: FontWeight(500),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -4,12 +4,14 @@ class HeadertextLoginForm extends StatelessWidget {
   final double fontSize;
   final String text;
   final int fontWeight;
+  final double letterSpacing;
 
   HeadertextLoginForm({
     super.key,
     required this.fontSize,
     required this.fontWeight,
     required this.text,
+    required this.letterSpacing,
   });
 
   @override
@@ -18,7 +20,7 @@ class HeadertextLoginForm extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          letterSpacing: -0.55,
+          letterSpacing: letterSpacing,
           fontFamily: "Jakarta",
           fontSize: fontSize,
           fontWeight: FontWeight(fontWeight),
