@@ -4,12 +4,14 @@ class LoginFormTextField extends StatelessWidget {
   final TextEditingController txtController;
   final String theHint;
   final IconData icon;
+  final bool obscure;
 
   LoginFormTextField({
     super.key,
     required this.txtController,
     required this.theHint,
     required this.icon,
+    required this.obscure,
   });
 
   @override
@@ -22,6 +24,7 @@ class LoginFormTextField extends StatelessWidget {
       child: Container(
         height: 50,
         child: TextField(
+          obscureText: obscure,
           controller: txtController,
           decoration: InputDecoration(
             prefixIcon: Icon(icon),
