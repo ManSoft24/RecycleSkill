@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:recycle_skill/components/headertext_login_form.dart';
-import 'package:recycle_skill/components/login_form_tf.dart';
+import 'package:get/get.dart';
+
+import 'package:recycle_skill/components/login_form/custom_check_box.dart';
+import 'package:recycle_skill/components/login_form/headertext_login_form.dart';
+import 'package:recycle_skill/components/login_form/login_form_btn.dart';
+import 'package:recycle_skill/components/login_form/login_form_tf.dart';
 
 class LoginSiswaPages extends StatelessWidget {
+  final RxBool isChecked = false.obs;
+
   LoginSiswaPages({super.key});
 
   @override
@@ -14,7 +20,7 @@ class LoginSiswaPages extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 180),
+            SizedBox(height: 140),
 
             Container(
               alignment: Alignment.center,
@@ -108,7 +114,7 @@ class LoginSiswaPages extends StatelessWidget {
             ),
 
             Container(
-              padding: EdgeInsets.only(left: 35, right: 35),
+              padding: EdgeInsets.only(left: 35, right: 35, bottom: 10),
               child: LoginFormTextField(
                 obscure: true,
                 txtController: txtPassword,
@@ -117,7 +123,22 @@ class LoginSiswaPages extends StatelessWidget {
               ),
             ),
 
-            
+            Container(
+              padding: EdgeInsets.only(left: 30),
+              alignment: Alignment.topLeft,
+              child: Obx(
+                () => CustomCheckbox(
+                  label: 'Ingat saya',
+                  value: isChecked.value,
+                  onChanged: (newValue) {
+                    isChecked.value = newValue ?? false;
+                  },
+                ),
+              ),
+            ),
+
+            LoginFormBtn()
+
           ],
         ),
       ),
