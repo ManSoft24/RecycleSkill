@@ -165,6 +165,9 @@ class LoginSiswaPages extends StatelessWidget {
 
                   child: Expanded(
                     child: LoginBtnAlt(
+                      onPressed: () {
+                        //func
+                      },
                       image: Image.asset('image/google_icon.png'),
                       text: "Google",
                     ),
@@ -180,6 +183,9 @@ class LoginSiswaPages extends StatelessWidget {
 
                   child: Expanded(
                     child: LoginBtnAlt(
+                      onPressed: () {
+                        //func
+                      },
                       image: Image.asset('image/email_icon.png'),
                       text: "Email",
                     ),
@@ -197,7 +203,7 @@ class LoginSiswaPages extends StatelessWidget {
                   text: "Tidak punya akun?",
                   letterSpacing: -0.55,
                 ),
-            
+
                 InkWell(
                   child: Text(
                     " Daftar",
@@ -210,6 +216,33 @@ class LoginSiswaPages extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            SizedBox(height: 10),
+
+            Container(
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 237, 254, 254),
+                ),
+                onPressed: () {
+                  //func
+                },
+                icon: Container(
+                  width: 20,
+                  height: 20,
+                  child: Image.asset("image/graduate_cap.png"),
+                ),
+                label: Text(
+                  "Masuk Sebagai Admin",
+                  style: TextStyle(
+                    fontFamily: "Jakarta",
+                    fontSize: 15,
+                    fontWeight: FontWeight(500),
+                    color: Color.fromARGB(255, 52, 103, 100),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
