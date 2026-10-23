@@ -6,6 +6,7 @@ import 'package:recycle_skill/components/login_form/headertext_login_form.dart';
 import 'package:recycle_skill/components/login_form/login_btn_alt.dart';
 import 'package:recycle_skill/components/login_form/login_loginform_btn.dart';
 import 'package:recycle_skill/components/login_form/login_form_tf.dart';
+import 'package:recycle_skill/components/login_form/login_password_tf.dart';
 
 class LoginSiswaPages extends StatelessWidget {
   final RxBool isChecked = false.obs;
@@ -120,8 +121,7 @@ class LoginSiswaPages extends StatelessWidget {
 
             Container(
               padding: EdgeInsets.only(left: 35, right: 35, bottom: 10),
-              child: LoginFormTextField(
-                obscure: true,
+              child: LoginPasswordTf(
                 txtController: txtPassword,
                 theHint: "Password",
                 icon: Icons.lock_outline,
