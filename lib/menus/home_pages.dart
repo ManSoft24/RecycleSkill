@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:recycle_skill/components/custom_app_bar.dart';
 import 'package:recycle_skill/components/home_page/article_tip_card.dart';
 import 'package:recycle_skill/components/home_page/hero_banner.dart';
@@ -9,48 +10,53 @@ import 'package:recycle_skill/components/home_page/promo_action_card.dart';
 import 'package:recycle_skill/components/home_page/quick_action_grid.dart';
 import 'package:recycle_skill/components/home_page/section_header.dart';
 import 'package:recycle_skill/components/home_page/waste_price_grid.dart';
+import 'package:recycle_skill/controllers/home_ctr.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final HomeController controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 110),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            LocationHeader(),
-            SizedBox(height: 16),
-            HeroBanner(),
-            SizedBox(height: 20),
-            QuickActionGrid(),
-            SizedBox(height: 22),
-            PromoActionCard(),
-            SizedBox(height: 24),
-            NextPickupCard(),
-            SizedBox(height: 24),
-            WastePriceGrid(),
-            SizedBox(height: 24),
-            SectionHeader(
-              title: 'Belanja Pakai Saldo Sampah',
-              actionLabel: 'Lihat Semua',
-            ),
-            SizedBox(height: 12),
-            MarketplaceCatalog(),
-            SizedBox(height: 24),
-            SectionHeader(
-              title: 'Tips Daur Ulang',
-              actionLabel: 'Edukasi Warga',
-            ),
-            SizedBox(height: 12),
-            ArticleTipCard(),
-            SizedBox(height: 24),
-          ],
+      body: Obx(
+        () => SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 110),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const LocationHeader(),
+              const SizedBox(height: 16),
+              HeroBanner(banners: controller.heroBanners),
+              const SizedBox(height: 20),
+              QuickActionGrid(items: controller.quickActions),
+              const SizedBox(height: 22),
+              const PromoActionCard(),
+              const SizedBox(height: 24),
+              const NextPickupCard(),
+              const SizedBox(height: 24),
+              WastePriceGrid(items: controller.wastePrices),
+              const SizedBox(height: 24),
+              const SectionHeader(
+                title: 'Belanja Pakai Saldo Sampah',
+                actionLabel: 'Lihat Semua',
+              ),
+              const SizedBox(height: 12),
+              MarketplaceCatalog(products: controller.marketplaceProducts),
+              const SizedBox(height: 24),
+              const SectionHeader(
+                title: 'Tips Daur Ulang',
+                actionLabel: 'Edukasi Warga',
+              ),
+              const SizedBox(height: 12),
+              const ArticleTipCard(),
+              const SizedBox(height: 24),
+            ],
+          ),
         ),
       ),
     );

@@ -1,51 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:recycle_skill/models/home/marketplace_product.dart';
 
-class MarketplaceProduct {
-  final String title;
-  final String price;
-  final double rating;
-  final String seller;
-  final String? imagePath;
-  final bool acceptsBalance;
-  final VoidCallback? onTap;
-
-  const MarketplaceProduct({
-    required this.title,
-    required this.price,
-    this.rating = 4.9,
-    this.seller = 'UMKM Desa',
-    this.imagePath,
-    this.acceptsBalance = true,
-    this.onTap,
-  });
-}
+export 'package:recycle_skill/models/home/marketplace_product.dart';
 
 class MarketplaceCatalog extends StatelessWidget {
   final List<MarketplaceProduct> products;
   final String fallbackImagePath;
+  final Function(MarketplaceProduct product)? onProductTap;
 
   const MarketplaceCatalog({
     super.key,
-    this.products = defaultProducts,
+    required this.products,
     this.fallbackImagePath = 'image/dummy_placeholder.png',
+    this.onProductTap,
   });
-
-  static const List<MarketplaceProduct> defaultProducts = [
-    MarketplaceProduct(
-      title: 'Tumbler Stainless 500ml',
-      price: 'Rp 45.000',
-      rating: 4.9,
-      seller: 'Kriya Gondosari',
-      imagePath: 'image/dummy_placeholder.png',
-    ),
-    MarketplaceProduct(
-      title: 'Komposter Bag 20L',
-      price: 'Rp 25.000',
-      rating: 4.8,
-      seller: 'Tani Makmur',
-      imagePath: 'image/dummy_placeholder.png',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +36,7 @@ class MarketplaceCatalog extends StatelessWidget {
 
   Widget _buildProductCard(BuildContext context, MarketplaceProduct product) {
     return GestureDetector(
-      onTap: product.onTap,
+      onTap: () => onProductTap?.call(product),
       behavior: HitTestBehavior.opaque,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
