@@ -93,7 +93,7 @@ class LoginSiswaPages extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(width: 150),
+                Spacer(),
 
                 Container(
                   alignment: Alignment.topRight,
