@@ -66,6 +66,7 @@ flutter:
     - image/graduate_cap.png
     - image/batik_appbar_bg.jpg
     - image/recycleskill_emblem.png
+    - image/dummy_placeholder.png
 
 
   # To add assets to your application, add an assets section, like this:
