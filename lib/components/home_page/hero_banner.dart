@@ -1,73 +1,20 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:recycle_skill/models/home/hero_banner_data.dart';
 
-class HeroBannerData {
-  final String title;
-  final String descriptionPrefix;
-  final String highlightText;
-  final IconData backgroundIcon;
-  final List<Color> gradientColors;
-  final VoidCallback? onTap;
-
-  const HeroBannerData({
-    required this.title,
-    required this.descriptionPrefix,
-    required this.highlightText,
-    this.backgroundIcon = Icons.eco_rounded,
-    this.gradientColors = const [
-      Color(0xFF14B8A6),
-      Color(0xFF047857),
-      Color(0xFF064E3B),
-    ],
-    this.onTap,
-  });
-}
+export 'package:recycle_skill/models/home/hero_banner_data.dart';
 
 class HeroBanner extends StatefulWidget {
-  final List<HeroBannerData>? banners;
+  final List<HeroBannerData> banners;
   final Duration autoScrollDuration;
+  final Function(HeroBannerData item)? onTapItem;
 
   const HeroBanner({
     super.key,
-    this.banners,
+    required this.banners,
     this.autoScrollDuration = const Duration(seconds: 4),
+    this.onTapItem,
   });
-
-  static const List<HeroBannerData> defaultBanners = [
-    HeroBannerData(
-      title: 'Harga Sampah Terstandar',
-      descriptionPrefix: 'Tips cuan: Sampah bersih, terpilah & kering dapat ',
-      highlightText: 'bonus nilai +10%',
-      backgroundIcon: Icons.eco_rounded,
-      gradientColors: [
-        Color(0xFF14B8A6),
-        Color(0xFF047857),
-        Color(0xFF064E3B),
-      ],
-    ),
-    HeroBannerData(
-      title: 'Jemput Sampah Gebog',
-      descriptionPrefix: 'Setor minimal 5 kg pilahan langsung dapat ',
-      highlightText: 'gratis ongkir pickup!',
-      backgroundIcon: Icons.local_shipping_rounded,
-      gradientColors: [
-        Color(0xFF0284C7),
-        Color(0xFF0F766E),
-        Color(0xFF064E3B),
-      ],
-    ),
-    HeroBannerData(
-      title: 'Tukar Saldo Belanja',
-      descriptionPrefix: 'Gunakan saldo sampahmu untuk belanja sembako murah ',
-      highlightText: 'diskon s/d 20%',
-      backgroundIcon: Icons.storefront_rounded,
-      gradientColors: [
-        Color(0xFF059669),
-        Color(0xFF166534),
-        Color(0xFF14532D),
-      ],
-    ),
-  ];
 
   @override
   State<HeroBanner> createState() => _HeroBannerState();
@@ -78,9 +25,6 @@ class _HeroBannerState extends State<HeroBanner> {
   Timer? _timer;
   int _currentIndex = 0;
 
-  List<HeroBannerData> get _items =>
-      widget.banners ?? HeroBanner.defaultBanners;
-
   @override
   void initState() {
     super.initState();
@@ -90,10 +34,10 @@ class _HeroBannerState extends State<HeroBanner> {
 
   void _startAutoPlay() {
     _timer?.cancel();
-    if (_items.length <= 1) return;
+    if (widget.banners.length <= 1) return;
     _timer = Timer.periodic(widget.autoScrollDuration, (timer) {
       if (!mounted) return;
-      final nextIndex = (_currentIndex + 1) % _items.length;
+      final nextIndex = (_currentIndex + 1) % widget.banners.length;
       _pageController.animateToPage(
         nextIndex,
         duration: const Duration(milliseconds: 450),
@@ -111,7 +55,8 @@ class _HeroBannerState extends State<HeroBanner> {
 
   @override
   Widget build(BuildContext context) {
-    final list = _items;
+    final list = widget.banners;
+    if (list.isEmpty) return const SizedBox.shrink();
 
     return Column(
       children: [
@@ -130,7 +75,7 @@ class _HeroBannerState extends State<HeroBanner> {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2),
                 child: GestureDetector(
-                  onTap: item.onTap,
+                  onTap: () => widget.onTapItem?.call(item),
                   child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(
