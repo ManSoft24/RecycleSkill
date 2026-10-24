@@ -19,13 +19,13 @@ class MainManuPages extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 92),
               child: IndexedStack(
                 index: controllers.selectedIndex.value,
-                children: controllers.ListPage,
+                children: controllers.listPage,
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: CustomBottomNavbar(
-                indexAktif: controllers.selectedIndex.value,
+                activeIndex: controllers.selectedIndex.value,
                 onTap: controllers.changePage,
               ),
             ),

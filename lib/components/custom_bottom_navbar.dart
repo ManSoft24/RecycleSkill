@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomBottomNavbar extends StatelessWidget {
-  final int indexAktif;
+  final int activeIndex;
   final Function(int) onTap;
 
   const CustomBottomNavbar({
     super.key,
-    required this.indexAktif,
+    required this.activeIndex,
     required this.onTap,
   });
 
-  static const Color hijauGelap = Color(0xFF1F3527);
-  static const Color abuAbu = Color(0xFF59655D);
-  static const Color hijauLembut = Color(0xFFE2EDE0);
-  static const Color kremLembut = Color(0xFFEFE5DA);
+  static const Color darkGreen = Color(0xFF1F3527);
+  static const Color grey = Color(0xFF59655D);
+  static const Color softGreen = Color(0xFFE2EDE0);
+  static const Color softBeige = Color(0xFFEFE5DA);
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class CustomBottomNavbar extends StatelessWidget {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [
-                    hijauLembut.withValues(alpha: 0.92),
-                    kremLembut.withValues(alpha: 0.92),
+                    softGreen.withValues(alpha: 0.92),
+                    softBeige.withValues(alpha: 0.92),
                   ],
                 ),
                 border: Border.all(color: Colors.white, width: 1.5),
@@ -49,15 +49,15 @@ class CustomBottomNavbar extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  tombolIkon(0, Icons.home_outlined, Icons.home),
-                  tombolIkon(1, Icons.delete_outline, Icons.delete),
+                  iconButton(0, Icons.home_outlined, Icons.home),
+                  iconButton(1, Icons.delete_outline, Icons.delete),
                   const SizedBox(width: 58),
-                  tombolIkon(
+                  iconButton(
                     3,
                     Icons.receipt_long_outlined,
                     Icons.receipt_long,
                   ),
-                  tombolIkon(4, Icons.person_outline, Icons.person),
+                  iconButton(4, Icons.person_outline, Icons.person),
                 ],
               ),
             ),
@@ -71,11 +71,11 @@ class CustomBottomNavbar extends StatelessWidget {
                   height: 58,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: hijauGelap,
+                    color: darkGreen,
                     border: Border.all(color: Colors.white, width: 2),
                     boxShadow: [
                       BoxShadow(
-                        color: hijauGelap.withValues(alpha: 0.40),
+                        color: darkGreen.withValues(alpha: 0.40),
                         blurRadius: 16,
                         offset: const Offset(0, 8),
                       ),
@@ -95,8 +95,8 @@ class CustomBottomNavbar extends StatelessWidget {
     );
   }
 
-  Widget tombolIkon(int index, IconData ikon, IconData ikonAktif) {
-    bool aktif = indexAktif == index;
+  Widget iconButton(int index, IconData icon, IconData activeIcon) {
+    final bool isActive = activeIndex == index;
 
     return GestureDetector(
       onTap: () => onTap(index),
@@ -105,9 +105,9 @@ class CustomBottomNavbar extends StatelessWidget {
         width: 48,
         height: 48,
         child: Icon(
-          aktif ? ikonAktif : ikon,
+          isActive ? activeIcon : icon,
           size: 26,
-          color: aktif ? hijauGelap : abuAbu,
+          color: isActive ? darkGreen : grey,
         ),
       ),
     );

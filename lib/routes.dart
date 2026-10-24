@@ -1,5 +1,5 @@
 import 'package:recycle_skill/pages/login_siswa_pages.dart';
-import 'package:recycle_skill/pages/main_manu_pages.dart';
+import 'package:recycle_skill/pages/main_menu_pages.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get.dart';
 
