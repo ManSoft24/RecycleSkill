@@ -1,64 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:recycle_skill/models/home/quick_action_item.dart';
 
-class QuickActionItem {
-  final String label;
-  final IconData icon;
-  final Color backgroundColor;
-  final Color iconColor;
-  final VoidCallback? onTap;
-
-  const QuickActionItem({
-    required this.label,
-    required this.icon,
-    required this.backgroundColor,
-    required this.iconColor,
-    this.onTap,
-  });
-}
+export 'package:recycle_skill/models/home/quick_action_item.dart';
 
 class QuickActionGrid extends StatelessWidget {
-  final List<QuickActionItem>? items;
+  final List<QuickActionItem> items;
+  final Function(QuickActionItem item)? onItemTap;
 
-  const QuickActionGrid({super.key, this.items});
-
-  static List<QuickActionItem> defaultItems = const [
-    QuickActionItem(
-      label: 'Tukar Sampah',
-      icon: Icons.recycling_rounded,
-      backgroundColor: Color(0xFFD1FAE5), // mint
-      iconColor: Color(0xFF047857),
-    ),
-    QuickActionItem(
-      label: 'Pickup Point',
-      icon: Icons.location_on_outlined,
-      backgroundColor: Color(0xFFE0F2FE), // cyan/ice blue
-      iconColor: Color(0xFF0284C7),
-    ),
-    QuickActionItem(
-      label: 'Marketplace',
-      icon: Icons.storefront_outlined,
-      backgroundColor: Color(0xFFFFEDD5), // light peach
-      iconColor: Color(0xFFEA580C),
-    ),
-    QuickActionItem(
-      label: 'Aktivitas',
-      icon: Icons.history_rounded,
-      backgroundColor: Color(0xFFEDE9FE), // light purple
-      iconColor: Color(0xFF7C3AED),
-    ),
-  ];
+  const QuickActionGrid({
+    super.key,
+    required this.items,
+    this.onItemTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final list = items ?? defaultItems;
+    if (items.isEmpty) return const SizedBox.shrink();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: list.map((item) {
+      children: items.map((item) {
         return Expanded(
           child: GestureDetector(
-            onTap: item.onTap,
+            onTap: () => onItemTap?.call(item),
             behavior: HitTestBehavior.opaque,
             child: Column(
               mainAxisSize: MainAxisSize.min,
