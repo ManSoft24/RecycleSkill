@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 110),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [

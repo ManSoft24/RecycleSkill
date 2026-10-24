@@ -12,15 +12,13 @@ class MainManuPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        backgroundColor: Colors.white,
         extendBody: true,
         body: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 92),
-              child: IndexedStack(
-                index: controllers.selectedIndex.value,
-                children: controllers.listPage,
-              ),
+            IndexedStack(
+              index: controllers.selectedIndex.value,
+              children: controllers.listPage,
             ),
             Align(
               alignment: Alignment.bottomCenter,
