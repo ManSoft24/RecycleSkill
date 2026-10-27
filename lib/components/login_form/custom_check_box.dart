@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomCheckbox extends StatelessWidget {
   final String label;
-  final bool value;
-  final ValueChanged<bool?> onChanged;
 
-  const CustomCheckbox({
-    super.key,
-    required this.label,
-    required this.value,
-    required this.onChanged,
-  });
+  final RxBool isChecked = false.obs;
+
+  CustomCheckbox({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onChanged(!value),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Checkbox(
-            value: value,
-            onChanged: onChanged,
-            activeColor: Color.fromARGB(255, 61, 74, 66),
-          ),
-          Text(
-            label,
-            style: TextStyle(
-              fontFamily: "Jakarta",
-              fontSize: 15,
-              fontWeight: FontWeight(500),
+    return ObxValue<RxBool>(
+      (isChecked) => InkWell(
+        onTap: () => isChecked.toggle(),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Checkbox(
+              value: isChecked.value,
+              onChanged: (newValue) {
+                isChecked.value = newValue ?? false;
+              },
+              activeColor: Color.fromARGB(255, 61, 74, 66),
             ),
-          ),
-        ],
+            Text(
+              label,
+              style: TextStyle(
+                fontFamily: "Jakarta",
+                fontSize: 15,
+                fontWeight: FontWeight(500),
+              ),
+            ),
+          ],
+        ),
       ),
+      false.obs,
     );
   }
 }

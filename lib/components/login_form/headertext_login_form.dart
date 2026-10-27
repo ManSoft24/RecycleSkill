@@ -18,6 +18,7 @@ class HeadertextLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text(
+        textAlign: TextAlign.center,
         text,
         style: TextStyle(
           letterSpacing: letterSpacing,

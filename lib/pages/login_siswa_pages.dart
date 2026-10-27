@@ -2,59 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:recycle_skill/components/login_form/custom_check_box.dart';
+import 'package:recycle_skill/components/login_form/header_login_form.dart';
 import 'package:recycle_skill/components/login_form/headertext_login_form.dart';
 import 'package:recycle_skill/components/login_form/login_btn_alt.dart';
 import 'package:recycle_skill/components/login_form/login_loginform_btn.dart';
 import 'package:recycle_skill/components/login_form/login_form_tf.dart';
 import 'package:recycle_skill/components/login_form/login_password_tf.dart';
+import 'package:recycle_skill/controllers/login_siswa_ctr.dart';
 
 class LoginSiswaPages extends StatelessWidget {
-  final RxBool isChecked = false.obs;
-
   LoginSiswaPages({super.key});
+
+  final controller = Get.put(LoginSiswaCtr());
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController txtUsername = TextEditingController();
-    TextEditingController txtPassword = TextEditingController();
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 100),
 
-            Container(
-              alignment: Alignment.center,
-              child: Image(
-                image: AssetImage('image/recycleskill_icon.png'),
-                height: 70,
-                width: 95,
-                fit: BoxFit.fill,
-              ),
-            ),
-
-            Container(
-              alignment: Alignment.center,
-
-              padding: EdgeInsets.only(top: 3.0, bottom: 5.0),
-              child: HeadertextLoginForm(
-                fontSize: 24.5,
-                fontWeight: 700,
-                text: "Selamat Datang",
-                letterSpacing: -0.55,
-              ),
-            ),
-
-            Container(
-              alignment: Alignment.center,
-
-              child: HeadertextLoginForm(
-                fontSize: 15,
-                fontWeight: 500,
-                text: 'Masuk ke akun konsumen Anda',
-                letterSpacing: -0.55,
-              ),
+            HeaderLoginForm(
+              user: 'Masuk ke akun konsumen Anda',
+              label: 'Selamat Datang',
             ),
 
             Container(
@@ -72,7 +43,7 @@ class LoginSiswaPages extends StatelessWidget {
               padding: EdgeInsets.only(left: 35, right: 35),
               child: LoginFormTextField(
                 obscure: false,
-                txtController: txtUsername,
+                txtController: controller.txtUsername,
                 theHint: "Username",
                 icon: Icons.person_2_outlined,
               ),
@@ -122,7 +93,7 @@ class LoginSiswaPages extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: 35, right: 35, bottom: 10),
               child: LoginPasswordTf(
-                txtController: txtPassword,
+                txtController: controller.txtPassword,
                 theHint: "Password",
                 icon: Icons.lock_outline,
               ),
@@ -131,15 +102,7 @@ class LoginSiswaPages extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: 30),
               alignment: Alignment.topLeft,
-              child: Obx(
-                () => CustomCheckbox(
-                  label: 'Ingat saya',
-                  value: isChecked.value,
-                  onChanged: (newValue) {
-                    isChecked.value = newValue ?? false;
-                  },
-                ),
-              ),
+              child: CustomCheckbox(label: 'Ingat saya'),
             ),
 
             LoginFormBtn(),
@@ -223,6 +186,7 @@ class LoginSiswaPages extends StatelessWidget {
             Container(
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
+                  overlayColor: Color.fromARGB(255, 61, 74, 66),
                   backgroundColor: Color.fromARGB(255, 237, 254, 254),
                 ),
                 onPressed: () {

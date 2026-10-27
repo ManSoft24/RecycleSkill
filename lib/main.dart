@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "RecycleSkill",
-      initialRoute: Routes.login_siswa,
+      initialRoute: Routes.login_admin,
       getPages: Routes.pages,
     );
   }
