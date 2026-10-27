@@ -30,6 +30,7 @@ class LoginBtnAlt extends StatelessWidget {
           onPressed: () => onPressed,
           icon: Container(width: 20, height: 20, child: image),
           label: HeadertextLoginForm(
+            color: Color.fromARGB(255, 61, 74, 66),
             fontSize: 15,
             fontWeight: 500,
             text: text,

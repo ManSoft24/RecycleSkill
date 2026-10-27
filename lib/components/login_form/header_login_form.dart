@@ -26,6 +26,7 @@ class HeaderLoginForm extends StatelessWidget {
 
           padding: EdgeInsets.only(top: 3.0, bottom: 5.0),
           child: HeadertextLoginForm(
+            color: Color.fromARGB(255, 61, 74, 66),
             fontSize: 24.5,
             fontWeight: 700,
             text: label,
@@ -37,6 +38,7 @@ class HeaderLoginForm extends StatelessWidget {
           alignment: Alignment.center,
 
           child: HeadertextLoginForm(
+            color: Color.fromARGB(255, 61, 74, 66),
             fontSize: 15,
             fontWeight: 500,
             text: user,

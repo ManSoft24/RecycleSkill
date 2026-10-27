@@ -32,6 +32,7 @@ class LoginSiswaPages extends StatelessWidget {
               alignment: Alignment.topLeft,
               padding: EdgeInsets.only(left: 35.0, top: 20.0, bottom: 10.0),
               child: HeadertextLoginForm(
+                color: Color.fromARGB(255, 61, 74, 66),
                 fontSize: 15,
                 fontWeight: 500,
                 text: 'Username',
@@ -57,6 +58,7 @@ class LoginSiswaPages extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 35.0, bottom: 10.0),
                   child: HeadertextLoginForm(
+                    color: Color.fromARGB(255, 61, 74, 66),
                     fontSize: 15,
                     fontWeight: 500,
                     text: 'Password',
@@ -100,7 +102,7 @@ class LoginSiswaPages extends StatelessWidget {
             ),
 
             Container(
-              padding: EdgeInsets.only(left: 30),
+              padding: EdgeInsets.only(left: 30, bottom: 8),
               alignment: Alignment.topLeft,
               child: CustomCheckbox(label: 'Ingat saya'),
             ),
@@ -110,7 +112,8 @@ class LoginSiswaPages extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 10),
               child: HeadertextLoginForm(
-                fontSize: 15,
+                color: Color.fromARGB(255,116,119,126),
+                fontSize: 17,
                 fontWeight: 500,
                 text: "ATAU",
                 letterSpacing: 1.5,
@@ -161,6 +164,7 @@ class LoginSiswaPages extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 HeadertextLoginForm(
+                  color: Color.fromARGB(255, 61, 74, 66),
                   fontSize: 15,
                   fontWeight: 15,
                   text: "Tidak punya akun?",
