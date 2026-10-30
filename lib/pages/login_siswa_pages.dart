@@ -9,6 +9,7 @@ import 'package:recycle_skill/components/login_form/login_loginform_btn.dart';
 import 'package:recycle_skill/components/login_form/login_form_tf.dart';
 import 'package:recycle_skill/components/login_form/login_password_tf.dart';
 import 'package:recycle_skill/controllers/login_siswa_ctr.dart';
+import 'package:recycle_skill/routes.dart';
 
 class LoginSiswaPages extends StatelessWidget {
   LoginSiswaPages({super.key});
@@ -112,7 +113,7 @@ class LoginSiswaPages extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 10),
               child: HeadertextLoginForm(
-                color: Color.fromARGB(255,116,119,126),
+                color: Color.fromARGB(255, 116, 119, 126),
                 fontSize: 17,
                 fontWeight: 500,
                 text: "ATAU",
@@ -194,7 +195,7 @@ class LoginSiswaPages extends StatelessWidget {
                   backgroundColor: Color.fromARGB(255, 237, 254, 254),
                 ),
                 onPressed: () {
-                  //func
+                  Get.toNamed(Routes.login_admin);
                 },
                 icon: Container(
                   width: 20,
