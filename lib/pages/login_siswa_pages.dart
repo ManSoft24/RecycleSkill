@@ -126,36 +126,30 @@ class LoginSiswaPages extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 35),
+                  padding: const EdgeInsets.only(left: 35),
                   width: 180,
                   height: 60,
-
-                  child: Expanded(
-                    child: LoginBtnAlt(
-                      onPressed: () {
-                        //func
-                      },
-                      image: Image.asset('image/google_icon.png'),
-                      text: "Google",
-                    ),
+                  child: LoginBtnAlt(
+                    onPressed: () {
+                      //func
+                    },
+                    image: Image.asset('image/google_icon.png'),
+                    text: "Google",
                   ),
                 ),
 
-                Spacer(),
+                const Spacer(),
 
                 Container(
-                  padding: EdgeInsets.only(right: 35),
+                  padding: const EdgeInsets.only(right: 35),
                   width: 180,
                   height: 60,
-
-                  child: Expanded(
-                    child: LoginBtnAlt(
-                      onPressed: () {
-                        //func
-                      },
-                      image: Image.asset('image/email_icon.png'),
-                      text: "Email",
-                    ),
+                  child: LoginBtnAlt(
+                    onPressed: () {
+                      //func
+                    },
+                    image: Image.asset('image/email_icon.png'),
+                    text: "Email",
                   ),
                 ),
               ],
