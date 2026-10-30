@@ -8,7 +8,6 @@ import 'package:recycle_skill/components/login_form/login_form_tf.dart';
 import 'package:recycle_skill/components/login_form/login_loginform_btn.dart';
 import 'package:recycle_skill/components/login_form/login_password_tf.dart';
 import 'package:recycle_skill/controllers/login_admin_ctr.dart';
-import 'package:recycle_skill/routes.dart';
 
 class LoginAdminPages extends StatelessWidget {
   final controller = Get.put(LoginAdminCtr());
@@ -22,7 +21,7 @@ class LoginAdminPages extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 60),
 
             HeaderLoginForm(
               user: "Access the School Management and \nAnalytics portal.",
@@ -108,7 +107,12 @@ class LoginAdminPages extends StatelessWidget {
               child: CustomCheckbox(label: 'Ingat saya'),
             ),
 
-            LoginFormBtn(),
+            LoginFormBtn(
+              action: () {
+                debugPrint("Tombol LoginFormBtn berhasil ditekan!");
+                controller.loginAdmin();
+              },
+            ),
 
             Padding(
               padding: EdgeInsets.only(top: 8),

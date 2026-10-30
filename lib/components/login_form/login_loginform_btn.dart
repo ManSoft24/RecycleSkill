@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LoginFormBtn extends StatelessWidget {
-  const LoginFormBtn({super.key});
+  final VoidCallback action;
+
+  const LoginFormBtn({super.key, required this.action});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,7 @@ class LoginFormBtn extends StatelessWidget {
             side: BorderSide.none,
           ),
         ),
-        onPressed: () {
-          //func dummy
-        },
+        onPressed: action,
         child: RichText(
           text: TextSpan(
             children: [
