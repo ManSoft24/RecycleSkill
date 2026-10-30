@@ -5,6 +5,7 @@ class HeadertextLoginForm extends StatelessWidget {
   final String text;
   final int fontWeight;
   final double letterSpacing;
+  final Color color;
 
   HeadertextLoginForm({
     super.key,
@@ -12,19 +13,21 @@ class HeadertextLoginForm extends StatelessWidget {
     required this.fontWeight,
     required this.text,
     required this.letterSpacing,
+    required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
+        textAlign: TextAlign.center,
         text,
         style: TextStyle(
           letterSpacing: letterSpacing,
           fontFamily: "Jakarta",
           fontSize: fontSize,
           fontWeight: FontWeight(fontWeight),
-          color: Color.fromARGB(255, 61, 74, 66),
+          color: color,
         ),
       ),
     );
