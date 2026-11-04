@@ -107,11 +107,15 @@ class LoginAdminPages extends StatelessWidget {
               child: CustomCheckbox(label: 'Ingat saya'),
             ),
 
-            LoginFormBtn(
-              action: () {
-                debugPrint("Tombol LoginFormBtn berhasil ditekan!");
-                controller.loginAdmin();
-              },
+            Obx(
+              () => controller.isLoading.value
+                  ? Center(child: CircularProgressIndicator())
+                  : LoginFormBtn(
+                      action: () {
+                        debugPrint("Tombol LoginFormBtn berhasil ditekan!");
+                        controller.loginAdmin();
+                      },
+                    ),
             ),
 
             Padding(

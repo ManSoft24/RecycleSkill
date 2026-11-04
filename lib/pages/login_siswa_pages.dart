@@ -108,11 +108,17 @@ class LoginSiswaPages extends StatelessWidget {
               child: CustomCheckbox(label: 'Ingat saya'),
             ),
 
-            LoginFormBtn(
-              action: () {
-                debugPrint("Tombol LoginFormBtn berhasil ditekan!");
-                controller.loginSiswa();
-              },
+            Obx(
+              () => controller.isLoading.value
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : LoginFormBtn(
+                      action: () {
+                        debugPrint("Tombol LoginFormBtn berhasil ditekan!");
+                        controller.loginSiswa();
+                      },
+                    ),
             ),
 
             Container(
