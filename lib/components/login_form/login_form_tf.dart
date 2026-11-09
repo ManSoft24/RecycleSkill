@@ -6,7 +6,7 @@ class LoginFormTextField extends StatelessWidget {
   final IconData icon;
   final bool obscure;
 
-  LoginFormTextField({
+  const LoginFormTextField({
     super.key,
     required this.txtController,
     required this.theHint,
@@ -21,7 +21,7 @@ class LoginFormTextField extends StatelessWidget {
       color: Color.fromARGB(255, 255, 255, 255),
       elevation: 5.0,
       shadowColor: Color.fromARGB(255, 0, 0, 0),
-      child: Container(
+      child: SizedBox(
         height: 50,
         child: TextField(
           obscureText: obscure,

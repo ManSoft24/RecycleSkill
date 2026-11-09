@@ -21,7 +21,7 @@ class LoginPasswordTf extends StatelessWidget {
       color: Color.fromARGB(255, 255, 255, 255),
       elevation: 5.0,
       shadowColor: Color.fromARGB(255, 0, 0, 0),
-      child: Container(
+      child: SizedBox(
         height: 50,
         child: ObxValue<RxBool>(
           (isObscured) => TextField(

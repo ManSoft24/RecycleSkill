@@ -67,6 +67,7 @@ flutter:
     - image/batik_appbar_bg.jpg
     - image/recycleskill_emblem.png
     - image/dummy_placeholder.png
+    - image/pfp.jpg
 
 
   # To add assets to your application, add an assets section, like this:
@@ -96,6 +97,8 @@ flutter:
           weight: 600
         - asset: assets/fonts/PlusJakartaSans-Bold.ttf
           weight: 700
+        - asset: assets/fonts/PlusJakartaSans-ExtraBold.ttf
+          weight: 800
 
     
   #

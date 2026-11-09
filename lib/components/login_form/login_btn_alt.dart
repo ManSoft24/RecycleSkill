@@ -6,7 +6,7 @@ class LoginBtnAlt extends StatelessWidget {
   final Image image;
   final VoidCallback onPressed;
 
-  LoginBtnAlt({
+  const LoginBtnAlt({
     super.key,
     required this.image,
     required this.text,
@@ -28,7 +28,7 @@ class LoginBtnAlt extends StatelessWidget {
             ),
           ),
           onPressed: () => onPressed,
-          icon: Container(width: 20, height: 20, child: image),
+          icon: SizedBox(width: 20, height: 20, child: image),
           label: HeadertextLoginForm(
             color: Color.fromARGB(255, 61, 74, 66),
             fontSize: 15,

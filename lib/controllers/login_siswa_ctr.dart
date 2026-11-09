@@ -37,7 +37,7 @@ class LoginSiswaCtr extends GetxController {
           if (data['status'] == true) {
             Get.snackbar(
               data['message'],
-              'Selamat Datang ' + txtUsername.text.toString(),
+              'Selamat Datang ${txtUsername.text}',
             );
             Get.offNamed(Routes.main_menu);
             debugPrint("berhasil");

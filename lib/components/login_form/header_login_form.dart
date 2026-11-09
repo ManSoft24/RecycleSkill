@@ -5,7 +5,7 @@ class HeaderLoginForm extends StatelessWidget {
   final String user;
   final String label;
 
-  HeaderLoginForm({super.key, required this.user, required this.label});
+  const HeaderLoginForm({super.key, required this.user, required this.label});
 
   @override
   Widget build(BuildContext context) {

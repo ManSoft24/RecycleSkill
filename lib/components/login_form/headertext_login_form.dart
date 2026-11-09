@@ -7,7 +7,7 @@ class HeadertextLoginForm extends StatelessWidget {
   final double letterSpacing;
   final Color color;
 
-  HeadertextLoginForm({
+  const HeadertextLoginForm({
     super.key,
     required this.fontSize,
     required this.fontWeight,

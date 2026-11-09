@@ -110,9 +110,7 @@ class LoginSiswaPages extends StatelessWidget {
 
             Obx(
               () => controller.isLoading.value
-                  ? Center(
-                      child: CircularProgressIndicator(),
-                    )
+                  ? Center(child: CircularProgressIndicator())
                   : LoginFormBtn(
                       action: () {
                         debugPrint("Tombol LoginFormBtn berhasil ditekan!");
@@ -202,7 +200,7 @@ class LoginSiswaPages extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed(Routes.login_admin);
                 },
-                icon: Container(
+                icon: SizedBox(
                   width: 20,
                   height: 20,
                   child: Image.asset("image/graduate_cap.png"),
