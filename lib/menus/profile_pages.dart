@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:recycle_skill/components/custom_app_bar.dart';
+import 'package:recycle_skill/components/profile_page/eco_balance_card/eco_balance_card.dart';
 import 'package:recycle_skill/components/profile_page/profile_header.dart';
 import 'package:recycle_skill/components/profile_page/level_progress_bar/level_progress_card.dart';
 import 'package:recycle_skill/controllers/profile_ctr.dart';
-
 
 class ProfilePages extends StatelessWidget {
   ProfilePages({super.key});
@@ -22,15 +21,18 @@ class ProfilePages extends StatelessWidget {
         child: Column(
           children: [
             ProfileHeader(),
-
+            
+            const SizedBox(height: 16),
             //nanti bisa di bagian ketika sudah di buatkan sistem transaksinya, tiap transaksi sampah yang berhasil
             //bisa ntr nambah point
-            Obx(() => LevelProgressCard(
-              currentLevel: controller.currentLevelText.toString(),
-              nextLevel: controller.nextLevel,
-              currentPoints: controller.currentPoints.value,
-              maxPoints: controller.maxPoints.value,
-            )),
+            Obx(
+              () => LevelProgressCard(
+                currentLevel: controller.currentLevelText.toString(),
+                nextLevel: controller.nextLevel,
+                currentPoints: controller.currentPoints.value,
+                maxPoints: controller.maxPoints.value,
+              ),
+            ),
 
             ElevatedButton(
               onPressed: () {
@@ -39,7 +41,20 @@ class ProfilePages extends StatelessWidget {
               child: const Text(' Test Add 10 Points'),
             ),
 
-              
+            const SizedBox(height: 12),
+            Obx(
+              () => EcoBalanceCard(
+                balance: controller.formattedBalance,
+                ecoPoints: controller.ecoPoints.value,
+                weeklyPoints: controller.weeklyEcoPoints.value,
+                co2Reduction: controller.co2Reduction,
+                onMutasiTap: controller.onMutasiTap,
+                onWithdrawTap: controller.onWithdrawTap,
+                onRedeemTap: controller.onRedeemTap,
+              ),
+            ),
+
+            
           ],
         ),
       ),

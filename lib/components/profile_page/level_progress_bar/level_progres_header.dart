@@ -28,7 +28,7 @@ class LevelProgressHeader extends StatelessWidget {
             const SizedBox(width: 8.0),
             Text(
 
-              'Level $currentLevel',
+              '$currentLevel',
               style: const TextStyle(
                 color: Color(0xFF006C4C), 
                 fontWeight: FontWeight.w700,

@@ -37,6 +37,7 @@ dependencies:
   fl_chart: ^1.2.0 
   get: ^4.7.3
   http: ^1.6.0
+  fluttericon: 2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
     - image/recycleskill_emblem.png
     - image/dummy_placeholder.png
     - image/pfp.jpg
+    - image/piggy_bank_icon.png
 
 
   # To add assets to your application, add an assets section, like this:
