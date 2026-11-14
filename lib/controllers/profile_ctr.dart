@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
 import 'package:recycle_skill/routes.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +10,10 @@ class ProfileCtr extends GetxController {
   RxInt balance = 350000.obs;
   RxInt ecoPoints = 650.obs;
   RxInt weeklyEcoPoints = 35.obs;
+
+  // Kontribusi Hijau
+  RxDouble collectedWasteKg = 32.5.obs;
+  RxInt savedTrees = 3.obs;
 
   int get nextLevel => currentLevel.value + 1;
   String get currentLevelText => 'Echo Hero Tingkat ${currentLevel.value}';

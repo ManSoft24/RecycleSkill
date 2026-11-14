@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recycle_skill/components/custom_app_bar.dart';
+import 'package:recycle_skill/components/profile_page/circular_services/circular_services_section.dart';
 import 'package:recycle_skill/components/profile_page/eco_balance_card/eco_balance_card.dart';
+import 'package:recycle_skill/components/profile_page/green_contribution/green_contribution_section.dart';
 import 'package:recycle_skill/components/profile_page/profile_header.dart';
 import 'package:recycle_skill/components/profile_page/level_progress_bar/level_progress_card.dart';
 import 'package:recycle_skill/controllers/profile_ctr.dart';
@@ -54,7 +56,17 @@ class ProfilePages extends StatelessWidget {
               ),
             ),
 
-            
+            const SizedBox(height: 20),
+            Obx(
+              () => GreenContributionSection(
+                collectedWasteKg: controller.collectedWasteKg.value,
+                savedTrees: controller.savedTrees.value,
+                co2Reduction: controller.co2Reduction,
+              ),
+            ),
+
+            const SizedBox(height: 20),
+            const CircularServicesSection(),
           ],
         ),
       ),
