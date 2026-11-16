@@ -8,6 +8,7 @@ import 'package:recycle_skill/components/tukar_sampah/waste_item_card.dart';
 import 'package:recycle_skill/components/tukar_sampah/waste_search_bar.dart';
 import 'package:recycle_skill/components/tukar_sampah/waste_summary_bottom_bar.dart';
 import 'package:recycle_skill/controllers/tukar_sampah_ctr.dart';
+import 'package:recycle_skill/routes.dart';
 
 class TukarSampahPage extends StatelessWidget {
   const TukarSampahPage({super.key});
@@ -114,20 +115,7 @@ class TukarSampahPage extends StatelessWidget {
           estimatedSaldo: controller.estimatedSaldo,
           ecoPoints: controller.ecoPoints,
           onContinuePickup: () {
-            Get.snackbar(
-              'Pilihan Pickup',
-              'Melanjutkan ke pemilihan titik & jadwal penjemputan (${controller.selectedCount} jenis sampah terpilih)',
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: const Color(0xFF006948),
-              colorText: Colors.white,
-              icon: const Icon(
-                Icons.check_circle_outline_rounded,
-                color: Colors.white,
-              ),
-              margin: const EdgeInsets.all(16),
-              borderRadius: 12,
-              duration: const Duration(seconds: 3),
-            );
+            Get.toNamed(Routes.tiket_pickup);
           },
         ),
       ),

@@ -38,7 +38,6 @@ dependencies:
   get: ^4.7.3
   http: ^1.6.0
   fluttericon: 2.0.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -77,6 +76,8 @@ flutter:
     - image/sampah_kaleng.png
     - image/sampah_besi.png
     - image/sampah_jelantah.png
+    - image/map_gebog_bg.png
+    - image/map_gebog_roads.png
 
 
   # To add assets to your application, add an assets section, like this:
