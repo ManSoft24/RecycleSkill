@@ -70,6 +70,13 @@ flutter:
     - image/dummy_placeholder.png
     - image/pfp.jpg
     - image/piggy_bank_icon.png
+    - image/sampah_pet.png
+    - image/sampah_hdpe.png
+    - image/sampah_kardus.png
+    - image/sampah_kertas.png
+    - image/sampah_kaleng.png
+    - image/sampah_besi.png
+    - image/sampah_jelantah.png
 
 
   # To add assets to your application, add an assets section, like this:

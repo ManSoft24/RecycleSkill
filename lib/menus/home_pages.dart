@@ -11,6 +11,7 @@ import 'package:recycle_skill/components/home_page/quick_action_grid.dart';
 import 'package:recycle_skill/components/home_page/section_header.dart';
 import 'package:recycle_skill/components/home_page/waste_price_grid.dart';
 import 'package:recycle_skill/controllers/home_ctr.dart';
+import 'package:recycle_skill/routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -32,7 +33,14 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 16),
             HeroBanner(banners: controller.heroBanners),
             const SizedBox(height: 20),
-            QuickActionGrid(items: controller.quickActions),
+            QuickActionGrid(
+              items: controller.quickActions,
+              onItemTap: (item) {
+                if (item.label == 'Tukar Sampah') {
+                  Get.toNamed(Routes.tukar_sampah);
+                }
+              },
+            ),
             const SizedBox(height: 22),
             const PromoActionCard(),
             const SizedBox(height: 24),

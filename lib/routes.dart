@@ -5,11 +5,13 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get.dart';
 import 'package:recycle_skill/pages/kursus_page.dart';
 import 'package:recycle_skill/pages/riwayat_transaksi_page.dart';
+import 'package:recycle_skill/pages/tukar_sampah_page.dart';
 import 'package:recycle_skill/pages/wallets/mutasi_pages.dart';
 import 'package:recycle_skill/pages/wallets/tarik_tunai_pages.dart';
 import 'package:recycle_skill/pages/wallets/tukar_hadiah_pages.dart';
 
 class Routes {
+  static const String tukar_sampah = "/tukar_sampah";
   static const String main_menu = "/main_menu_pages";
   static const String tukar_hadiah = "/tukar_hadiah_pages";
   static const String tarik_tunai = "/tarik_tunai_pages";
@@ -22,6 +24,7 @@ class Routes {
   static const String login_admin = "/login_admin_pages";
 
   static final pages = [
+    GetPage(name: tukar_sampah, page: () => const TukarSampahPage()),
     GetPage(name: main_menu, page: () => MainManuPages()),
     GetPage(name: tukar_hadiah, page: () => TukarHadiahPages()),
     GetPage(name: tarik_tunai, page: () => TarikTunaiPages()),
